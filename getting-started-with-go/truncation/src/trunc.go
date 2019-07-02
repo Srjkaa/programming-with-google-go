@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	fmt.Printf("Enter a floating point number: \n")
 	var givenNumber float64
-	_, err := fmt.Scan("%f", &givenNumber)
+	_, err := fmt.Scan(&givenNumber)
 	if err != nil {
 		fmt.Println(err)
 	}
