@@ -28,10 +28,10 @@ func main() {
 		fmt.Print("Enter 'X' for quit or an integer: ")
 		enteredNumber := getUserEnteredValue()
 		switch {
-			case index < 3:
-				replaceInitialSliceValuesWithGivenNumber(numbers, enteredNumber)
-			default:
-				numbers = append(numbers, enteredNumber)
+		case index < 3:
+			replaceInitialSliceValuesWithGivenNumber(numbers, enteredNumber)
+		default:
+			numbers = append(numbers, enteredNumber)
 		}
 		sort.Ints(numbers)
 		fmt.Println(numbers)
