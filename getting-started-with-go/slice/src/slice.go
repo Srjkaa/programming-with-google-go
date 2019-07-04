@@ -3,16 +3,16 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strconv"
 )
 
-// TODO: implement quit when 'X' is entered
-func getUserEnteredValue() int {
-	var number int
-	_, err := fmt.Scan(&number)
+func getUserInput() string {
+	var userInput string
+	_, err := fmt.Scan(&userInput)
 	if err != nil {
 		fmt.Println(err)
 	}
-	return number
+	return userInput
 }
 
 func replaceInitialSliceValuesWithGivenNumber(slice []int, number int) []int {
@@ -26,7 +26,11 @@ func main() {
 	numbers := make([]int, 3)
 	for index := range numbers {
 		fmt.Print("Enter 'X' for quit or an integer: ")
-		enteredNumber := getUserEnteredValue()
+		enteredValue := getUserInput()
+		if enteredValue[0] == 'X' {
+			return
+		}
+		enteredNumber, _ := strconv.Atoi(enteredValue)
 		switch {
 		case index < 3:
 			replaceInitialSliceValuesWithGivenNumber(numbers, enteredNumber)
