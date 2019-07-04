@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"regexp"
 	"sort"
 	"strconv"
 )
@@ -21,14 +22,19 @@ func replaceInitialSliceValuesWithGivenNumber(slice []int, number int) []int {
 	return slice
 }
 
-// TODO: implement case when user wants to input more than 3 values but with initial slice length equals to 3
 func main() {
 	numbers := make([]int, 3)
-	for index := range numbers {
+	re := regexp.MustCompile(`[a-zA-Z]`)
+	index := 0
+	for {
 		fmt.Print("Enter 'X' for quit or an integer: ")
 		enteredValue := getUserInput()
 		if enteredValue[0] == 'X' {
+			fmt.Println(numbers)
 			return
+		}
+		if re.Match([]byte(enteredValue)) {
+			continue
 		}
 		enteredNumber, _ := strconv.Atoi(enteredValue)
 		switch {
@@ -39,5 +45,6 @@ func main() {
 		}
 		sort.Ints(numbers)
 		fmt.Println(numbers)
+		index++
 	}
 }
