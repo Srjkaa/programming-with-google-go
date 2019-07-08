@@ -50,7 +50,6 @@ func transformLinesToNameStructure(fileLines []string) []Name {
 }
 
 func main() {
-	names := make([]Name, 0)
 	fmt.Print("Enter name of the text file: ")
 	fileName := readUserInput()
 
@@ -59,6 +58,6 @@ func main() {
 		fmt.Println(err)
 	}
 
-	names = transformLinesToNameStructure(fileLines)
+	names := transformLinesToNameStructure(fileLines)
 	printNames(names)
 }
