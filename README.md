@@ -1,1 +1,1 @@
-# Programming with Google go
+# Programming with Google Go
