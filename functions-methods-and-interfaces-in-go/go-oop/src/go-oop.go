@@ -92,7 +92,7 @@ func main() {
 	snake = *snake.InitializeAnimal(Snake)
 
 	for {
-		userInputAsList := strings.Split(getUserInput(), " ")
+		userInputAsList := strings.Fields(getUserInput())
 		enteredAnimal := AnimalType(userInputAsList[0])
 		enteredCommand := userInputAsList[1]
 		animal, err := getAnimalByType(enteredAnimal, &cow, &bird, &snake)
